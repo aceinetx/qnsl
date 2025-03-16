@@ -6,6 +6,8 @@ if(NOT DEFINED APP_NAME)
 	message(SEND_ERROR "APP_NAME is not defined")
 endif()
 
+add_compile_definitions(-DAPP_NAME="\\"${APP_NAME}\\"")
+
 file(GLOB_RECURSE QNSL_SOURCES CONFIGURE_DEPENDS "qnsl/src/*.cpp")
 file(GLOB_RECURSE APP_SOURCES CONFIGURE_DEPENDS "Source/*.cpp")
 
@@ -38,6 +40,7 @@ else()
 		elseif(LINUX_BACKEND STREQUAL "SDL2")
 			find_package(SDL2 REQUIRED)
 
+			add_compile_definitions(LINUX_SDL2 SDL_MAIN_HANDLED)
 			if(SDL2_FOUND)
 				message(STATUS "Using SDL2.")
 				file(GLOB_RECURSE PDCURSES_ALL_PLATFORM_SOURCES CONFIGURE_DEPENDS "qnsl/PDCurses/sdl2/*.c")
