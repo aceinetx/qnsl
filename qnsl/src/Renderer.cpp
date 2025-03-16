@@ -1,11 +1,17 @@
 #include "Renderer.h"
+#include <curses.h>
+
 
 qn::Renderer::Renderer() {
 	initscr();
 	noecho();
 	nodelay(stdscr, true);
 	curs_set(0);
+#ifdef BUTTON1_MOVED
 	mousemask(BUTTON1_PRESSED | BUTTON1_RELEASED | BUTTON1_MOVED, NULL);
+#else
+	mousemask(BUTTON1_PRESSED | BUTTON1_RELEASED, NULL);
+#endif
 }
 
 qn::Renderer::~Renderer() {

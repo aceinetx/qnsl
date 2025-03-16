@@ -1,4 +1,5 @@
 #include "Director.h"
+#include <curses.h>
 
 qn::Director::Director() {
 	this->app = nullptr;

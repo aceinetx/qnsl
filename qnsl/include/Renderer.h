@@ -1,7 +1,6 @@
 #pragma once
 #include "Director.h"
 #include "Vec2.h"
-#include <curses.h>
 
 namespace qn {
 class Renderer {
