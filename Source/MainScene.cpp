@@ -1,7 +1,6 @@
 #include "MainScene.h"
 
-bool MainScene::init()
-{
+bool MainScene::init() {
 	if (!qn::Scene::init())
 		return false;
 
@@ -11,7 +10,7 @@ bool MainScene::init()
 	this->addChild(node);
 
 	auto node1 = qn::PixelNode::create('Y');
-	node1->setPosition({ 2, 1 });
+	node1->setPosition({2, 1});
 
 	this->addChild(node1);
 

@@ -1,6 +1,6 @@
 #pragma once
-#include "Scene.h"
 #include "PixelNode.h"
+#include "Scene.h"
 
 class MainScene : public qn::Scene {
 public:

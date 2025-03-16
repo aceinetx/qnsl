@@ -9,121 +9,115 @@ printw
 
 ### Synopsis
 
-    int printw(const char *fmt, ...);
-    int wprintw(WINDOW *win, const char *fmt, ...);
-    int mvprintw(int y, int x, const char *fmt, ...);
-    int mvwprintw(WINDOW *win, int y, int x, const char *fmt,...);
-    int vwprintw(WINDOW *win, const char *fmt, va_list varglist);
-    int vw_printw(WINDOW *win, const char *fmt, va_list varglist);
+		int printw(const char *fmt, ...);
+		int wprintw(WINDOW *win, const char *fmt, ...);
+		int mvprintw(int y, int x, const char *fmt, ...);
+		int mvwprintw(WINDOW *win, int y, int x, const char *fmt,...);
+		int vwprintw(WINDOW *win, const char *fmt, va_list varglist);
+		int vw_printw(WINDOW *win, const char *fmt, va_list varglist);
 
 ### Description
 
-   The printw() functions add a formatted string to the window at the
-   current or specified cursor position. The format strings are the same
-   as used in the standard C library's printf(). (printw() can be used
-   as a drop-in replacement for printf().)
+	 The printw() functions add a formatted string to the window at the
+	 current or specified cursor position. The format strings are the same
+	 as used in the standard C library's printf(). (printw() can be used
+	 as a drop-in replacement for printf().)
 
-   The duplication between vwprintw() and vw_printw() is for historic
-   reasons. In PDCurses, they're the same.
+	 The duplication between vwprintw() and vw_printw() is for historic
+	 reasons. In PDCurses, they're the same.
 
 ### Return Value
 
-   All functions return the number of characters printed, or ERR on
-   error.
+	 All functions return the number of characters printed, or ERR on
+	 error.
 
 ### Portability
-                             X/Open  ncurses  NetBSD
-    printw                      Y       Y       Y
-    wprintw                     Y       Y       Y
-    mvprintw                    Y       Y       Y
-    mvwprintw                   Y       Y       Y
-    vwprintw                    Y       Y       Y
-    vw_printw                   Y       Y       Y
+														 X/Open  ncurses  NetBSD
+		printw                      Y       Y       Y
+		wprintw                     Y       Y       Y
+		mvprintw                    Y       Y       Y
+		mvwprintw                   Y       Y       Y
+		vwprintw                    Y       Y       Y
+		vw_printw                   Y       Y       Y
 
 **man-end****************************************************************/
 
 #include <string.h>
 
-int vwprintw(WINDOW *win, const char *fmt, va_list varglist)
-{
-    char printbuf[513];
-    int len;
+int vwprintw(WINDOW *win, const char *fmt, va_list varglist) {
+	char printbuf[513];
+	int len;
 
-    PDC_LOG(("vwprintw() - called\n"));
+	PDC_LOG(("vwprintw() - called\n"));
 
 #ifdef HAVE_VSNPRINTF
-    len = vsnprintf(printbuf, 512, fmt, varglist);
+	len = vsnprintf(printbuf, 512, fmt, varglist);
 #else
-    len = vsprintf(printbuf, fmt, varglist);
+	len = vsprintf(printbuf, fmt, varglist);
 #endif
-    return (waddstr(win, printbuf) == ERR) ? ERR : len;
+	return (waddstr(win, printbuf) == ERR) ? ERR : len;
 }
 
-int printw(const char *fmt, ...)
-{
-    va_list args;
-    int retval;
+int printw(const char *fmt, ...) {
+	va_list args;
+	int retval;
 
-    PDC_LOG(("printw() - called\n"));
+	PDC_LOG(("printw() - called\n"));
 
-    va_start(args, fmt);
-    retval = vwprintw(stdscr, fmt, args);
-    va_end(args);
+	va_start(args, fmt);
+	retval = vwprintw(stdscr, fmt, args);
+	va_end(args);
 
-    return retval;
+	return retval;
 }
 
-int wprintw(WINDOW *win, const char *fmt, ...)
-{
-    va_list args;
-    int retval;
+int wprintw(WINDOW *win, const char *fmt, ...) {
+	va_list args;
+	int retval;
 
-    PDC_LOG(("wprintw() - called\n"));
+	PDC_LOG(("wprintw() - called\n"));
 
-    va_start(args, fmt);
-    retval = vwprintw(win, fmt, args);
-    va_end(args);
+	va_start(args, fmt);
+	retval = vwprintw(win, fmt, args);
+	va_end(args);
 
-    return retval;
+	return retval;
 }
 
-int mvprintw(int y, int x, const char *fmt, ...)
-{
-    va_list args;
-    int retval;
+int mvprintw(int y, int x, const char *fmt, ...) {
+	va_list args;
+	int retval;
 
-    PDC_LOG(("mvprintw() - called\n"));
+	PDC_LOG(("mvprintw() - called\n"));
 
-    if (move(y, x) == ERR)
-        return ERR;
+	if (move(y, x) == ERR)
+		return ERR;
 
-    va_start(args, fmt);
-    retval = vwprintw(stdscr, fmt, args);
-    va_end(args);
+	va_start(args, fmt);
+	retval = vwprintw(stdscr, fmt, args);
+	va_end(args);
 
-    return retval;
+	return retval;
 }
 
-int mvwprintw(WINDOW *win, int y, int x, const char *fmt, ...)
-{
-    va_list args;
-    int retval;
+int mvwprintw(WINDOW *win, int y, int x, const char *fmt, ...) {
+	va_list args;
+	int retval;
 
-    PDC_LOG(("mvwprintw() - called\n"));
+	PDC_LOG(("mvwprintw() - called\n"));
 
-    if (wmove(win, y, x) == ERR)
-        return ERR;
+	if (wmove(win, y, x) == ERR)
+		return ERR;
 
-    va_start(args, fmt);
-    retval = vwprintw(win, fmt, args);
-    va_end(args);
+	va_start(args, fmt);
+	retval = vwprintw(win, fmt, args);
+	va_end(args);
 
-    return retval;
+	return retval;
 }
 
-int vw_printw(WINDOW *win, const char *fmt, va_list varglist)
-{
-    PDC_LOG(("vw_printw() - called\n"));
+int vw_printw(WINDOW *win, const char *fmt, va_list varglist) {
+	PDC_LOG(("vw_printw() - called\n"));
 
-    return vwprintw(win, fmt, varglist);
+	return vwprintw(win, fmt, varglist);
 }

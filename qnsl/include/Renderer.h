@@ -1,20 +1,18 @@
 #pragma once
-#include <curses.h>
-#include "Vec2.h"
 #include "Director.h"
+#include "Vec2.h"
+#include <curses.h>
 
-namespace qn
-{
-  class Renderer
-  {
-  public:
-    static Renderer *getInstance();
-    ~Renderer();
+namespace qn {
+class Renderer {
+public:
+	static Renderer *getInstance();
+	~Renderer();
 
-    void plotPixel(Vec2 coords, char pixel);
-    void render();
+	void plotPixel(Vec2 coords, char pixel);
+	void render();
 
-  private:
-    Renderer();
-  };
-}
+private:
+	Renderer();
+};
+} // namespace qn

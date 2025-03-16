@@ -2,21 +2,19 @@
 #include "Application.h"
 #include "Scene.h"
 
-namespace qn
-{
-	class Application;
-	class Director
-	{
-	private:
-		qn::Scene* runningScene;
-		Director();
+namespace qn {
+class Application;
+class Director {
+private:
+	qn::Scene *runningScene;
+	Director();
 
-	public:
-		qn::Application* app;
+public:
+	qn::Application *app;
 
-		~Director();
-		static Director* getInstance();
-		qn::Scene* getRunningScene();
-		void run(qn::Scene* scene);
-	};
-}
+	~Director();
+	static Director *getInstance();
+	qn::Scene *getRunningScene();
+	void run(qn::Scene *scene);
+};
+} // namespace qn

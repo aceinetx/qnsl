@@ -1,29 +1,30 @@
 #pragma once
 #include "Vec2.h"
-#include <vector>
 #include <cassert>
+#include <vector>
 
-#define CREATE_FUNC(_class) static _class* create() { \
-								_class* res = new _class(); \
-								assert(res->init() == true); \
-								return res; \
-							}
+#define CREATE_FUNC(_class)                                                                                                                                                                                                                                    \
+	static _class *create() {                                                                                                                                                                                                                                    \
+		_class *res = new _class();                                                                                                                                                                                                                                \
+		assert(res->init() == true);                                                                                                                                                                                                                               \
+		return res;                                                                                                                                                                                                                                                \
+	}
 
 namespace qn {
-	class Node {
-	private:
-		qn::Vec2 position;
-		std::vector<Node*> children;
+class Node {
+private:
+	qn::Vec2 position;
+	std::vector<Node *> children;
 
-	public:
-		Node();
+public:
+	Node();
 
-		virtual bool init();
-		virtual void visit();
-		qn::Vec2 getPosition();
-		void setPosition(qn::Vec2 position);
-		void addChild(Node* child);
+	virtual bool init();
+	virtual void visit();
+	qn::Vec2 getPosition();
+	void setPosition(qn::Vec2 position);
+	void addChild(Node *child);
 
-		CREATE_FUNC(qn::Node);
-	};
-}
+	CREATE_FUNC(qn::Node);
+};
+} // namespace qn

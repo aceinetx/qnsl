@@ -1,8 +1,7 @@
 #include "Application.h"
 
-class AppDelegate : public qn::Application
-{
+class AppDelegate : public qn::Application {
 public:
-  AppDelegate();
-  ~AppDelegate();
+	AppDelegate();
+	~AppDelegate();
 };
