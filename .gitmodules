@@ -1,0 +1,3 @@
+[submodule "qnsl/PDCurses"]
+	path = qnsl/PDCurses
+	url = https://github.com/wmcbrine/PDCurses
