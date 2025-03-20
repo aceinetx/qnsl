@@ -6,12 +6,10 @@ bool MainScene::init() {
 
 	auto node = qn::PixelNode::create('X');
 	node->setPosition({1, 1});
-
-	this->addChild(node);
-
 	auto node1 = qn::PixelNode::create('Y');
 	node1->setPosition({2, 1});
 
+	this->addChild(node);
 	this->addChild(node1);
 
 	return true;
