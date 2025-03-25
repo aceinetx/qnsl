@@ -1,4 +1,5 @@
 #include "MainScene.h"
+#include "PixelNode.h"
 
 bool MainScene::init() {
 	if (!qn::Scene::init())
