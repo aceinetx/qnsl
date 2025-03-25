@@ -8,7 +8,7 @@ endif()
 
 add_compile_definitions(-DAPP_NAME="\\"${APP_NAME}\\"")
 
-file(GLOB_RECURSE QNSL_SOURCES CONFIGURE_DEPENDS "qnsl/src/*.cpp")
+file(GLOB QNSL_SOURCES CONFIGURE_DEPENDS "qnsl/src/*.cpp")
 file(GLOB_RECURSE APP_SOURCES CONFIGURE_DEPENDS "Source/*.cpp")
 
 if(WIN32)
