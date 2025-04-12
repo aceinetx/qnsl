@@ -12,25 +12,25 @@ public:
 	Vec2();
 	Vec2(int x, int y);
 
-	Vec2 &operator=(const Vec2 &other);
-	Vec2 operator+(Vec2 &other);
+	Vec2& operator=(const Vec2& other);
+	Vec2 operator+(Vec2& other);
 	Vec2 operator+(int s);
-	Vec2 operator-(Vec2 &other);
+	Vec2 operator-(Vec2& other);
 	Vec2 operator-(int s);
-	Vec2 operator*(Vec2 &other);
+	Vec2 operator*(Vec2& other);
 	Vec2 operator*(int s);
-	Vec2 operator/(Vec2 &other);
+	Vec2 operator/(Vec2& other);
 	Vec2 operator/(int s);
-	Vec2 &operator+=(Vec2 &other);
-	Vec2 &operator+=(int s);
-	Vec2 &operator-=(Vec2 &other);
-	Vec2 &operator-=(int s);
-	Vec2 &operator*=(Vec2 &other);
-	Vec2 &operator*=(int s);
-	Vec2 &operator/=(Vec2 &other);
-	Vec2 &operator/=(int s);
+	Vec2& operator+=(Vec2& other);
+	Vec2& operator+=(int s);
+	Vec2& operator-=(Vec2& other);
+	Vec2& operator-=(int s);
+	Vec2& operator*=(Vec2& other);
+	Vec2& operator*=(int s);
+	Vec2& operator/=(Vec2& other);
+	Vec2& operator/=(int s);
 
-	Vec2 &normalize();
+	Vec2& normalize();
 	int length();
 };
 } // namespace qn

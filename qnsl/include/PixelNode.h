@@ -12,6 +12,6 @@ public:
 	void visit();
 
 	CREATE_FUNC(PixelNode);
-	static PixelNode *create(char pixel);
+	static PixelNode* create(char pixel);
 };
 } // namespace qn

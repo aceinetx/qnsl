@@ -46,7 +46,7 @@ void qn::Renderer::plotPixel(Vec2 coords, char pixel) {
 	mvaddch(coords.y, coords.x, pixel);
 }
 
-qn::Renderer *qn::Renderer::getInstance() {
+qn::Renderer* qn::Renderer::getInstance() {
 	static Renderer instance;
 	return &instance;
 }
@@ -54,7 +54,7 @@ qn::Renderer *qn::Renderer::getInstance() {
 void qn::Renderer::render() {
 	auto director = qn::Director::getInstance();
 
-	Scene *runningScene = director->getRunningScene();
+	Scene* runningScene = director->getRunningScene();
 	assert(runningScene != nullptr);
 
 	runningScene->visit();

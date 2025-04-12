@@ -4,8 +4,8 @@
 #include <vector>
 
 #define CREATE_FUNC(_class)                                                                                                                                                                                                                                    \
-	static _class *create() {                                                                                                                                                                                                                                    \
-		_class *res = new _class();                                                                                                                                                                                                                                \
+	static _class* create() {                                                                                                                                                                                                                                    \
+		_class* res = new _class();                                                                                                                                                                                                                                \
 		assert(res->init() == true);                                                                                                                                                                                                                               \
 		return res;                                                                                                                                                                                                                                                \
 	}
@@ -14,7 +14,7 @@ namespace qn {
 class Node {
 private:
 	qn::Vec2 position;
-	std::vector<Node *> children;
+	std::vector<Node*> children;
 
 public:
 	Node();
@@ -23,7 +23,7 @@ public:
 	virtual void visit();
 	qn::Vec2 getPosition();
 	void setPosition(qn::Vec2 position);
-	void addChild(Node *child);
+	void addChild(Node* child);
 
 	CREATE_FUNC(qn::Node);
 };

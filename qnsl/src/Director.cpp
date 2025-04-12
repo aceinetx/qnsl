@@ -8,16 +8,16 @@ qn::Director::Director() {
 qn::Director::~Director() {
 }
 
-qn::Director *qn::Director::getInstance() {
+qn::Director* qn::Director::getInstance() {
 	static Director instance;
 	return &instance;
 }
 
-qn::Scene *qn::Director::getRunningScene() {
+qn::Scene* qn::Director::getRunningScene() {
 	return this->runningScene;
 }
 
-void qn::Director::run(qn::Scene *scene) {
+void qn::Director::run(qn::Scene* scene) {
 	this->runningScene = scene;
 	assert(this->app != nullptr);
 

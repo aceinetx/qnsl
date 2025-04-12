@@ -10,12 +10,12 @@ namespace qn {
 class Renderer {
 private:
 #ifdef LINUX_SDL2
-	SDL_Window *pdc_window;
-	SDL_Surface *pdc_screen;
+	SDL_Window* pdc_window;
+	SDL_Surface* pdc_screen;
 	int pdc_yoffset;
 #endif
 public:
-	static Renderer *getInstance();
+	static Renderer* getInstance();
 	~Renderer();
 
 	void plotPixel(Vec2 coords, char pixel);

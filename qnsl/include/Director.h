@@ -6,15 +6,15 @@ namespace qn {
 class Application;
 class Director {
 private:
-	qn::Scene *runningScene;
+	qn::Scene* runningScene;
 	Director();
 
 public:
-	qn::Application *app;
+	qn::Application* app;
 
 	~Director();
-	static Director *getInstance();
-	qn::Scene *getRunningScene();
-	void run(qn::Scene *scene);
+	static Director* getInstance();
+	qn::Scene* getRunningScene();
+	void run(qn::Scene* scene);
 };
 } // namespace qn

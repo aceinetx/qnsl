@@ -6,7 +6,7 @@ qn::EventListener::EventListener() {
 qn::EventListener::~EventListener() {
 }
 
-qn::EventListener *qn::EventListener::getInstance() {
+qn::EventListener* qn::EventListener::getInstance() {
 	static qn::EventListener instance;
 	return &instance;
 }

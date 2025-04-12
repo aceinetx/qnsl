@@ -7,12 +7,12 @@ bool qn::Node::init() {
 	return true;
 }
 
-void qn::Node::addChild(qn::Node *child) {
+void qn::Node::addChild(qn::Node* child) {
 	this->children.push_back(child);
 }
 
 void qn::Node::visit() {
-	for (qn::Node *child : children) {
+	for (qn::Node* child : children) {
 		child->visit();
 	}
 }

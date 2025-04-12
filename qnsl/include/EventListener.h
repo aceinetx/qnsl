@@ -11,6 +11,6 @@ private:
 
 public:
 	~EventListener();
-	static qn::EventListener *getInstance();
+	static qn::EventListener* getInstance();
 };
 } // namespace qn
